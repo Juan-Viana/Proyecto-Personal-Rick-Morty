@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import style from './Form.module.css';
+import imagen from '../../assets/Login.jpg'
 
 const Form = () => {
   const [username, setUsername] = useState('');
@@ -23,9 +24,9 @@ const Form = () => {
   return (
     <div className={style.formContainer}>
       <form onSubmit={handleSubmit} className={style.loginForm}>
-        <img src="https://instagram.feoh1-1.fna.fbcdn.net/v/t51.2885-15/358345685_139520429162734_741760782100016441_n.jpg?stp=dst-jpg_e35_p640x640" alt='no imagen XD'/>
+        <img src={imagen} alt="Login Picture" className={style.imagenForm} />
 
-        <label htmlFor="username" className={style.loginFormLabel}>Ingresa tus datos</label>
+        <strong><label htmlFor="username" className={style.loginFormLabel}>Ingresa tus datos</label></strong>
         <input type="text"
           id="username"
           value={username}

@@ -1,0 +1,68 @@
+/* Estilo para .characterContainer */
+.characterContainer {
+  width: 260px;
+  height: 400px;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(13, 100, 108);
+  border: 1px solid;
+  border-radius: 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Estilo para .closeButton */
+.closeButton {
+  width: 25px;
+  height: 25px;
+  font-weight: 500;
+  background-color: rgb(12, 55, 100);
+  color: #eec910;
+  border: solid;
+  border-radius: 30%;
+  border-color: #02112b67;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.infoCharacter {
+  width: 230px;
+  text-align: left;
+}
+
+/* Estilo para .paragraph */
+.paragraph {
+  margin: 3px;
+  font-size: 17px;
+  font-family: cursive;
+  font-variant: small-caps;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+/* Estilo para .characterName */
+.characterName {
+  font-size: 20px;
+  font-family: cursive;
+  font-variant: small-caps;
+  font-weight: 600;
+  line-height: 18px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+/* Estilo para .image */
+.image {
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+  border: 4px solid;
+  border-radius: 4%;
+  border-color: rgb(9, 70, 76);
+}

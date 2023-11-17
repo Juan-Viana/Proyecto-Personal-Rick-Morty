@@ -9,9 +9,23 @@ function SearchBar({ onSearch }) {
   }
 
   return (
-    <div className={style.SearchBarContainer}>
-      <input type="search" value={idCharacter } onChange={handleChange} />
-      <button onClick={() => { onSearch(idCharacter) }}>Agregar</button>
+    <div className={style.searchContainer}>
+      <input type="search"
+        value={idCharacter}
+        className={style.searchInput}
+        placeholder="ID del personaje"
+        onChange={handleChange}
+      />
+      <button
+        className={style.searchButton}
+        onClick={() => { onSearch(idCharacter) }}>
+        Agregar
+      </button>
+      <button
+        className={style.searchButton}
+        onClick={() => { onSearch(Math.floor(Math.random() * 800) + 1) }}>
+        Aleatorio
+      </button>
     </div>
   );
 }

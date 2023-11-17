@@ -1,20 +1,19 @@
 .formContainer {
     display: flex;
-    height: 50vh;
     justify-content: center;
-    margin-top: 50px;
 }
 
-.loginFormLabel {
-    margin-top: 50px;
-    padding-top: 50px;
+.userDataContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
 }
 
 .loginForm {
-    margin-top: 50px;
+    margin-top: 20px;
     flex-direction: column;
     display: flex;
-    height: 64vh;
     align-items: center;
     background: linear-gradient(to bottom, #00c0ff, #ff00bc);
     opacity: 0.9;
@@ -26,27 +25,39 @@
     flex-wrap: nowrap;
 }
 
-.loginFormInput {
-    width: 70%;
+.loginFormLabel {
+    color: #2b0235;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.emailInput {
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #d50505;
-    border-radius: 3px;
+    margin-top: 15px;
+    border: 2px solid #390338;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.passwordInput {
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #480647;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .loginFormButton {
     width: 50%;
-    height: 10%;
-    margin-top: 50px;
-    background-color: #b30707;
-    color: #fff;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #480647;
+    color: #f1e1f2;
     border: none;
-    border-radius: 3px;
+    border-radius: 8px;
     cursor: pointer;
-}
-
-.login-form button:hover {
-    background-color: #0056b3;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 .imagenForm {
@@ -54,4 +65,6 @@
     justify-content: center;
     max-width: 60%;
     height: auto;
+    border-radius: 5px;
+    border: 2px solid #480647;
 }

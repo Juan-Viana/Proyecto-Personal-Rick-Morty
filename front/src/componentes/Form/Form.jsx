@@ -25,24 +25,24 @@ const Form = () => {
     <div className={style.formContainer}>
       <form onSubmit={handleSubmit} className={style.loginForm}>
         <img src={imagen} alt="Login Picture" className={style.imagenForm} />
-
-        <strong><label htmlFor="username" className={style.loginFormLabel}>Ingresa tus datos</label></strong>
-        <input type="text"
-          id="username"
-          value={username}
-          onChange={handleUsername}
-          placeholder="Correo electrónico"
-          loginFormInput
-          className={style.loginFormInput}
-        />
-        <input type="password"
-          id="password"
-          value={password}
-          onChange={handlePassword}
-          placeholder="Contraseña"
-          className={style.loginFormInput}
-        />
-        <button type="submit" className={style.loginFormButton}>Submit</button>
+        <div className={style.userDataContainer}>
+          <label htmlFor="username" className={style.loginFormLabel}>Ingresa tus datos</label>
+          <input type="text"
+            id="username"
+            value={username}
+            className={style.emailInput}
+            placeholder="Correo electrónico"
+            onChange={handleUsername}
+          />
+          <input type="password"
+            id="password"
+            value={password}
+            className={style.passwordInput}
+            placeholder="Contraseña"
+            onChange={handlePassword}
+          />
+          <button type="submit" className={style.loginFormButton}>Enviar</button>
+        </div>
       </form>
     </div>
   );

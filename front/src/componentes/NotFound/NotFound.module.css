@@ -7,10 +7,10 @@
 .navContainer {
     display: flex;
     justify-content: center;
-    padding: 15px 0px;
-    opacity: 0.8;
-    width: 100vw;
+    width: 100%;
+    padding: 15px;
     background-color: #110431;
+    opacity: 0.8;
 }
 
 .linkButton {

@@ -3,4 +3,5 @@ body {
   padding: 0;
   background-image: url('./assets/Background.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
 }

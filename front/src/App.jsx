@@ -1,14 +1,17 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import './App.module.css';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import Form from './componentes/Form/Form';
 import Cards from './componentes/Cards/Cards';
 import NavBar from './componentes/NavBar/NavBar';
 import About from './componentes/About/About';
 import Detail from './componentes/Detail/Detail';
+import NotFound from './componentes/NotFound/NotFound';
 
 function App() {
   const [charactersState, setCharacters] = useState([]);
+  const location = useLocation();
+
 
   const fetchCharacter = async (id) => {
     const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
@@ -39,7 +42,7 @@ function App() {
 
   return (
     <div>
-      <NavBar onSearch={onSearch} />
+      {location.pathname !== '/' && <NavBar onSearch={onSearch} />}
       <Routes>
         <Route path='/' element={<Form />} />
         <Route
@@ -48,6 +51,7 @@ function App() {
         />
         <Route path='/about' element={<About />} />
         <Route path='/detail/:id' element={<Detail />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );

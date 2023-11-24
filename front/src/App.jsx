@@ -1,6 +1,6 @@
 import './App.module.css';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
 import Form from './componentes/Form/Form';
 import Cards from './componentes/Cards/Cards';
 import NavBar from './componentes/NavBar/NavBar';
@@ -10,8 +10,23 @@ import NotFound from './componentes/NotFound/NotFound';
 
 function App() {
   const [charactersState, setCharacters] = useState([]);
+  const [access, setAccess] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const credentials = { email: "lgcookie2442@hotmail.com", password: "3574725" };
 
+  useEffect(() => {
+    !access && navigate('/');
+  }, [access]);
+
+  const login = (userData) => {
+    console.log(userData.email === credentials.email);
+    console.log(userData.password === credentials.password);
+    if (userData.email === credentials.email && userData.password === credentials.password) {
+      setAccess(true);
+      navigate('/home');
+    }
+  };
 
   const fetchCharacter = async (id) => {
     const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
@@ -40,11 +55,15 @@ function App() {
     setCharacters(charactersState.filter((character) => character.id !== id));
   };
 
+  const logOut = () => {
+    setAccess(false);
+  };
+
   return (
     <div>
-      {location.pathname !== '/' && <NavBar onSearch={onSearch} />}
+      {location.pathname !== '/' && <NavBar onSearch={onSearch} logOut={logOut} />}
       <Routes>
-        <Route path='/' element={<Form />} />
+        <Route path='/' element={<Form login={login} />} />
         <Route
           path='/home'
           element={<Cards characters={charactersState} onClose={onClose} />}
@@ -53,6 +72,7 @@ function App() {
         <Route path='/detail/:id' element={<Detail />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
+      {console.log("User Access: " + access)}
     </div>
   );
 };

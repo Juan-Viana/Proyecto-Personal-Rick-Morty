@@ -3,6 +3,28 @@
     justify-content: center;
 }
 
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15vh;
+    padding: 20px;
+    width: 220px;
+    background: linear-gradient(to bottom, #00c0ff, #ff00bc);
+    opacity: 0.9;
+    border: 2px solid #050c73;
+    border-radius: 15px;
+}
+
+.imagenForm {
+    display: flex;
+    justify-content: center;
+    max-width: 60%;
+    height: auto;
+    border-radius: 5px;
+    border: 2px solid #480647;
+}
+
 .userDataContainer {
     display: flex;
     flex-direction: column;
@@ -10,20 +32,7 @@
     padding-top: 15px;
 }
 
-.loginForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15vh;
-    padding: 20px;
-    width: 300px;
-    background: linear-gradient(to bottom, #00c0ff, #ff00bc);
-    opacity: 0.9;
-    border: 2px solid #050c73;
-    border-radius: 15px;
-}
-
-.loginFormLabel {
+.dataLabel {
     color: #2b0235;
     font-size: 22px;
     font-weight: bold;
@@ -37,9 +46,16 @@
     text-align: center;
 }
 
+.errorText{
+    color: #fcb000;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 5px 0px;
+    text-align: center;
+}
+
 .passwordInput {
     padding: 10px;
-    margin-top: 10px;
     border: 2px solid #480647;
     border-radius: 8px;
     text-align: center;
@@ -48,7 +64,8 @@
 .loginFormButton {
     width: 50%;
     padding: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
     background-color: #480647;
     color: #f1e1f2;
     border: none;
@@ -56,13 +73,4 @@
     cursor: pointer;
     font-weight: bold;
     font-size: 15px;
-}
-
-.imagenForm {
-    display: flex;
-    justify-content: center;
-    max-width: 60%;
-    height: auto;
-    border-radius: 5px;
-    border: 2px solid #480647;
 }

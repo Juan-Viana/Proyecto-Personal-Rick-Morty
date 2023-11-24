@@ -2,23 +2,43 @@ import React, { useState } from 'react';
 import style from './Form.module.css';
 import imagen from '../../assets/Login.jpg'
 
-const Form = () => {
-  const [username, setUsername] = useState('');
+const Form = ({ login }) => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleUsername = (e) => {
-    setUsername(e.target.value);
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
   };
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Aquí puedes realizar la lógica de autenticación
-    console.log('Username:', username);
-    console.log('Password:', password);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const userData = { email: email, password: password};
+
+    document.getElementById('errorEmail').textContent = validateEmail();
+    document.getElementById('errorPassword').textContent = validatePassword();
+    login(userData);
+  };
+
+  const validateEmail = () => {
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!regexEmail.test(email)) return 'Ingrese un email valido'
+    if (email.trim() === '') return 'El email no puede estar vacío';
+    if (email.trim().length > 35) return 'Email máximo de 35 caracteres';
+    return '';
+  };
+
+  const validatePassword = () => {
+    const regexPassword = /\d+/;
+
+    if (password.match(regexPassword) < 1) return 'La contraseña debe tener minimo un número';
+    if (password.trim().length < 6) return 'Contraseña demasiado corta';
+    if (password.trim().length > 10) return 'Contraseña demasiado larga';
+    return '';
   };
 
   return (
@@ -26,21 +46,22 @@ const Form = () => {
       <form onSubmit={handleSubmit} className={style.loginForm}>
         <img src={imagen} alt="Login Picture" className={style.imagenForm} />
         <div className={style.userDataContainer}>
-          <label htmlFor="username" className={style.loginFormLabel}>Ingresa tus datos</label>
+          <label htmlFor="email" className={style.dataLabel}>Ingresa tus datos</label>
           <input type="text"
-            id="username"
-            value={username}
+            id="email"
+            value={email}
             className={style.emailInput}
             placeholder="Correo electrónico"
-            onChange={handleUsername}
+            onChange={handleEmail}
           />
+          <p id="errorEmail" className={style.errorText}></p>
           <input type="password"
-            id="password"
             value={password}
             className={style.passwordInput}
             placeholder="Contraseña"
             onChange={handlePassword}
           />
+          <p id="errorPassword" className={style.errorText}></p>
           <button type="submit" className={style.loginFormButton}>Enviar</button>
         </div>
       </form>
